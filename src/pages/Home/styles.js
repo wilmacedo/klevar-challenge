@@ -2,7 +2,11 @@ import { transparentize } from 'polished';
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  padding: 150px 25% 0;
+  padding: 50px 25% 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 
   @media (max-width: 1440px) {
     padding: 150px 20% 0;
@@ -28,8 +32,8 @@ export const InputContainer = styled.div`
   flex-direction: row;
   justify-content: space-between;
   background-color: ${props => transparentize(.9, props.theme.dark)};
-  border: 1px solid ${props => props.theme.primary};
-  border-radius: 15px;
+  /* border: 1px solid ${props => props.theme.primary}; */
+  border-radius: 5px;
   padding: 5px 5px 5px 10px;
   margin-top: 30px;
   width: 300px;
@@ -49,12 +53,12 @@ export const InputContainer = styled.div`
   }
 
   &:hover {
-    box-shadow: 0 1px 6px ${props => transparentize(.7, props.theme.primary)};
+    box-shadow: 0 1px 6px ${props => transparentize(.8, props.theme.dark)};
   }
 `;
 
 export const Button = styled.div`
-  padding: 5px;
+  padding: 5px 10px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -64,9 +68,32 @@ export const Button = styled.div`
   font-size: 16px;
   cursor: pointer;
   transition: .2s ease;
-  border-radius: 15px;
+  border-radius: 5px;
 
   &:hover {
     box-shadow: 0 1px 6px ${props => transparentize(.1, props.theme.primary)};
   }
+`;
+
+export const PhoneContainer = styled.div`
+  position: relative;
+`;
+
+export const PhoneGradient = styled.div`
+  position: absolute;
+  bottom: 13px;
+  width: 100%;
+  height: 90px;
+  background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(33,42,48,1) 100%);
+`;
+
+export const PhoneCard = styled.div`
+  position: absolute;
+  top: 55px;
+  right: 44px;
+  background-color: ${props => props.theme.background};
+  border: 1px solid ${props => props.theme.primary};
+  border-radius: 15px;
+  height: 210px;
+  width: 79%;
 `;

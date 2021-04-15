@@ -47,10 +47,10 @@ export const LogoContainer = styled.div`
 `;
 
 export const Button = styled.div`
-  padding: 15px 20px;
+  padding: 10px 15px;
   background-color: ${props => props.theme.primary};
   color: ${props => props.theme.light};
-  border-radius: 15px;
+  border-radius: 5px;
   font-weight: 600;
   cursor: pointer;
   transition: .2s ease;
