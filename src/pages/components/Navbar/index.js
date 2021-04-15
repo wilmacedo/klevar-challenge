@@ -5,21 +5,24 @@ import Logo from '../../../assets/logo.png';
 import {
   Button,
   Container,
+  Content,
   LogoContainer
 } from './styles';
 
 const Navbar = () => (
   <Container>
-    <LogoContainer>
-      <img src={Logo} alt="wallet." />
-      <h2>wallet.</h2>
-    </LogoContainer>
-    <a href="http://github.com/wilmacedo/klever-challenge" target="_blank" rel="noreferrer">
-      <Button>
-        Source Code
+    <Content>
+      <LogoContainer>
+        <img src={Logo} alt="wallet." />
+        <h2>wallet.</h2>
+      </LogoContainer>
+      <a href="http://github.com/wilmacedo/klever-challenge" target="_blank" rel="noreferrer">
+        <Button>
+          Source Code
       </Button>
-    </a>
-  </Container >
+      </a>
+    </Content >
+  </Container>
 );
 
 export default Navbar;

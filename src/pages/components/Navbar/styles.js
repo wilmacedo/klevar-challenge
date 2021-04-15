@@ -2,12 +2,30 @@ import { transparentize } from 'polished';
 import styled from 'styled-components';
 
 export const Container = styled.nav`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
+  width: 100%;
   height: 100px;
-  padding: 0 100px;
+`;
+
+export const Content = styled.div`
+  padding: 20px 30px 0;
+  max-width: 1120px;
+  display: flex;
+  margin: 0 auto;
+  justify-content: space-between;
+  align-items: center;
+
+  @media (max-width: 1140px) {
+    max-width: 1120px;
+  }
+  @media (max-width: 992px) {
+    max-width: 960px;
+  }
+  @media (max-width: 768px) {
+    max-width: 720px;
+  }
+  @media (max-width: 576px) {
+    max-width: 540px;
+  }
 `;
 
 export const LogoContainer = styled.div`

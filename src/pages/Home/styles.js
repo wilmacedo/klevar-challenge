@@ -2,7 +2,15 @@ import { transparentize } from 'polished';
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  padding: 100px 150px 0;
+  padding: 150px 25% 0;
+
+  @media (max-width: 1440px) {
+    padding: 150px 20% 0;
+  }
+
+  @media (max-width: 1024px) {
+    padding: 150px 100px 0;
+  }
 
   h1 {
     color: ${props => props.theme.light};
