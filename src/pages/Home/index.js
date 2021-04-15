@@ -3,14 +3,11 @@ import React, { useState } from 'react';
 import {
   Button,
   Container,
-  InputContainer,
-  PhoneCard,
-  PhoneContainer,
-  PhoneGradient
+  InputContainer
 } from './styles';
 
 import Navbar from '../components/Navbar';
-import Phone from '../../assets/phone.png';
+import Phone from '../components/Phone';
 
 const Home = () => {
   const [wallet, setWallet] = useState(null);
@@ -35,11 +32,7 @@ const Home = () => {
             <Button>{buttonName}</Button>
           </InputContainer>
         </div>
-        <PhoneContainer>
-          <img src={Phone} alt="Phone" />
-          <PhoneGradient />
-          <PhoneCard />
-        </PhoneContainer>
+        <Phone />
       </Container>
     </>
   );

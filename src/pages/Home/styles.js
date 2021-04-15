@@ -9,11 +9,11 @@ export const Container = styled.div`
   align-items: center;
 
   @media (max-width: 1440px) {
-    padding: 150px 20% 0;
+    padding: 100px 20% 0;
   }
 
   @media (max-width: 1024px) {
-    padding: 150px 100px 0;
+    padding: 50px 100px 0;
   }
 
   h1 {
@@ -73,27 +73,4 @@ export const Button = styled.div`
   &:hover {
     box-shadow: 0 1px 6px ${props => transparentize(.1, props.theme.primary)};
   }
-`;
-
-export const PhoneContainer = styled.div`
-  position: relative;
-`;
-
-export const PhoneGradient = styled.div`
-  position: absolute;
-  bottom: 13px;
-  width: 100%;
-  height: 90px;
-  background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(33,42,48,1) 100%);
-`;
-
-export const PhoneCard = styled.div`
-  position: absolute;
-  top: 55px;
-  right: 44px;
-  background-color: ${props => props.theme.background};
-  border: 1px solid ${props => props.theme.primary};
-  border-radius: 15px;
-  height: 210px;
-  width: 79%;
 `;
