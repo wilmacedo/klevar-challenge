@@ -24,7 +24,15 @@ const Phone = ({ balance }) => {
           ) : (
             <p>Waiting for Wallet...</p>
           )}
-          <span>Balance</span>
+          <span style={{ marginBottom: 10 }}>Confirmed</span>
+
+          {buttonState ? (
+            <strong>500000000</strong>
+          ) : (
+            <p>Waiting for Wallet...</p>
+          )}
+          <span>Unconfirmed</span>
+
           <Button
             disabled={!buttonState}
             onClick={() => setButtonState(!buttonState)}

@@ -25,7 +25,7 @@ export const CardContainer = styled.div`
 `;
 
 export const CardContent = styled.div`
-  padding: 40px 20px;
+  padding: 20px 20px;
   display: flex;
   flex-direction: column;
   
@@ -37,7 +37,7 @@ export const CardContent = styled.div`
 
   p {
     font-size: 24px;
-    font-weight: 500;
+    font-weight: 300;
     color: ${props => transparentize(.8, props.theme.light)};
   }
 
@@ -65,6 +65,6 @@ export const Button = styled.div`
   border-radius: 5px;
 
   &:hover {
-    /* box-shadow: 0 1px 6px ${props => transparentize(.1, props.theme.primary)}; */
+    box-shadow: 0 1px 6px ${props => transparentize(.75, props.theme.primary)};
   }
 `;
