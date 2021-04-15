@@ -14,8 +14,12 @@ const Navbar = () => (
       <img src={Logo} alt="wallet." />
       <h2>wallet.</h2>
     </LogoContainer>
-    <Button>Source Code</Button>
-  </Container>
+    <a href="http://github.com/wilmacedo/klever-challenge" target="_blank" rel="noreferrer">
+      <Button>
+        Source Code
+      </Button>
+    </a>
+  </Container >
 );
 
 export default Navbar;
