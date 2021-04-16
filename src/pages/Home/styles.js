@@ -1,4 +1,4 @@
-import { transparentize } from 'polished';
+import { darken, transparentize } from 'polished';
 import styled from 'styled-components';
 
 export const Container = styled.div`
@@ -63,8 +63,8 @@ export const Button = styled.div`
   align-items: center;
   justify-content: center;
   text-align: center;
-  background-color: ${props => props.theme.primary};
-  color: ${props => props.theme.light};
+  background-color: ${props => !props.load ? props.theme.primary : darken(.15, props.theme.primary)};
+  color: ${props => !props.load ? props.theme.light : darken(.15, props.theme.light)};
   font-size: 16px;
   cursor: pointer;
   transition: .2s ease;

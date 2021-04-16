@@ -11,11 +11,14 @@ import {
 
 import Navbar from '../../components/Navbar';
 import Phone from '../../components/Phone';
+import { Loader } from '../../components/Loader';
 
 import { api } from '../../services';
 
 const Home = () => {
   const [wallet, setWallet] = useState(null);
+  const [response, setResponse] = useState(null);
+  const [loading, setLoading] = useState(false);
   const buttonName = 'Get Now';
 
   const handleBallon = () => document.getElementById('ballon').animate([
@@ -29,23 +32,24 @@ const Home = () => {
   ], { duration: 5 * 1000 });
 
   const fetchBalance = () => {
-    if (!wallet) return;
+    if (!wallet || loading) return;
     if (!validate(wallet)) {
       handleBallon();
       return;
     }
 
+    setLoading(true);
     api.balance(wallet)
       .then(response => {
         const { status, data, error } = response;
 
-        if (!error) {
-          console.log('STATUS:', status);
-          console.log('DATA:', data);
+        if (!error && status === 200) {
+          setResponse(data);
         } else {
           handleBallon();
         }
-      })
+        setLoading(false);
+      });
   }
 
   return (
@@ -62,11 +66,18 @@ const Home = () => {
               value={wallet || ''}
               onChange={event => setWallet(event.target.value)}
             />
-            <Button onClick={fetchBalance}>{buttonName}</Button>
+            <Button
+              load={loading}
+              onClick={fetchBalance}
+            >
+              {loading ? (
+                <Loader><div /><div /></Loader>
+              ) : buttonName}
+            </Button>
           </InputContainer>
           <BallonContainer id="ballon">Please, provide a valid Wallet Address.</BallonContainer>
         </div>
-        <Phone />
+        <Phone response={response} wallet={wallet} />
       </Container>
     </>
   );
