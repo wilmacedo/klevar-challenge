@@ -19,17 +19,25 @@ const Home = () => {
   const [wallet, setWallet] = useState(null);
   const [response, setResponse] = useState(null);
   const [loading, setLoading] = useState(false);
+
+  const [ballonMessage, setBallonMessage] = useState(null);
   const buttonName = 'Get Now';
 
-  const handleBallon = () => document.getElementById('ballon').animate([
-    { opacity: 0, visibility: 'hidden' },
-    { opacity: 1, visibility: 'visible' },
-    { opacity: 1, visibility: 'visible' },
-    { opacity: 1, visibility: 'visible' },
-    { opacity: 1, visibility: 'visible' },
-    { opacity: 1, visibility: 'visible' },
-    { opacity: 0, visibility: 'hidden' },
-  ], { duration: 5 * 1000 });
+  const handleBallon = (message = 'Please, provide a valid Wallet Address.') => {
+    let element = document.getElementById('ballon');
+
+    setBallonMessage(message)
+
+    element.animate([
+      { opacity: 0, visibility: 'hidden' },
+      { opacity: 1, visibility: 'visible' },
+      { opacity: 1, visibility: 'visible' },
+      { opacity: 1, visibility: 'visible' },
+      { opacity: 1, visibility: 'visible' },
+      { opacity: 1, visibility: 'visible' },
+      { opacity: 0, visibility: 'hidden' },
+    ], { duration: 5 * 1000 });
+  }
 
   const fetchBalance = () => {
     if (!wallet || loading) return;
@@ -46,7 +54,7 @@ const Home = () => {
         if (!error && status === 200) {
           setResponse(data);
         } else {
-          handleBallon();
+          handleBallon('Sorry, an error has occurred on our server.');
         }
         setLoading(false);
       });
@@ -75,7 +83,7 @@ const Home = () => {
               ) : buttonName}
             </Button>
           </InputContainer>
-          <BallonContainer id="ballon">Please, provide a valid Wallet Address.</BallonContainer>
+          <BallonContainer id="ballon">{ballonMessage}</BallonContainer>
         </div>
         <Phone response={response} wallet={wallet} />
       </Container>
