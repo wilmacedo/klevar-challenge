@@ -18,19 +18,20 @@ const Home = () => {
   const [wallet, setWallet] = useState(null);
   const buttonName = 'Get Now';
 
+  const handleBallon = () => document.getElementById('ballon').animate([
+    { opacity: 0, visibility: 'hidden' },
+    { opacity: 1, visibility: 'visible' },
+    { opacity: 1, visibility: 'visible' },
+    { opacity: 1, visibility: 'visible' },
+    { opacity: 1, visibility: 'visible' },
+    { opacity: 1, visibility: 'visible' },
+    { opacity: 0, visibility: 'hidden' },
+  ], { duration: 5 * 1000 });
+
   const fetchBalance = () => {
     if (!wallet) return;
     if (!validate(wallet)) {
-      document.getElementById('ballon').animate([
-        { opacity: 0, visibility: 'hidden' },
-        { opacity: 1, visibility: 'visible' },
-        { opacity: 1, visibility: 'visible' },
-        { opacity: 1, visibility: 'visible' },
-        { opacity: 1, visibility: 'visible' },
-        { opacity: 1, visibility: 'visible' },
-        { opacity: 0, visibility: 'hidden' },
-      ], { duration: 5 * 1000 });
-
+      handleBallon();
       return;
     }
 
@@ -42,7 +43,7 @@ const Home = () => {
           console.log('STATUS:', status);
           console.log('DATA:', data);
         } else {
-          console.log(error);
+          handleBallon();
         }
       })
   }
