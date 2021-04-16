@@ -8,7 +8,7 @@ import {
   Gradient
 } from './styles';
 
-import PhoneImage from '../../../assets/phone.png'
+import PhoneImage from '../../assets/phone.png'
 
 const Phone = ({ balance }) => {
   const [buttonState, setButtonState] = useState(false);

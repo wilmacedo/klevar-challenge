@@ -9,7 +9,7 @@ export const Container = styled.div`
   align-items: center;
 
   @media (max-width: 1440px) {
-    padding: 100px 20% 0;
+    padding: 100px 10% 0;
   }
 
   @media (max-width: 1024px) {
@@ -72,5 +72,35 @@ export const Button = styled.div`
 
   &:hover {
     box-shadow: 0 1px 6px ${props => transparentize(.1, props.theme.primary)};
+  }
+`;
+
+export const BallonContainer = styled.div`
+  opacity: 0;
+  visibility: hidden;
+  position: relative;
+  margin-top: 10px;
+	background: ${props => transparentize(.5, props.theme.dark)};
+  padding: 10px 15px;
+  border-radius: 5px;
+  display: flex;
+  width: 150px;
+  align-items: center;
+  justify-content: center;
+  color: ${props => props.theme.light};
+  text-align: center;
+
+  &:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border: 22px solid transparent;
+    border-bottom-color: ${props => transparentize(.5, props.theme.dark)};
+    border-top: 0;
+    margin-left: -51px;
+    margin-top: -22px;
   }
 `;
